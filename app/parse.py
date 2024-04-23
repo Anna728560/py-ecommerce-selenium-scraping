@@ -2,7 +2,7 @@ import csv
 import time
 
 from dataclasses import dataclass, fields, asdict
-from typing import List, Union
+from typing import List
 from urllib.parse import urljoin
 
 from selenium.webdriver.remote.webelement import WebElement
