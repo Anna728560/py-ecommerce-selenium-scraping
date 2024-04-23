@@ -73,8 +73,9 @@ def get_page_with_products(url: str) -> List[Product]:
     with webdriver.Chrome() as driver:
         driver.get(url)
         accept_cookies(driver)
-        has_scroll_button(driver)
+        resolve_scroll_button(driver)
         products = driver.find_elements(By.CLASS_NAME, "thumbnail")
+
         return [parse_single_product(product) for product in products]
 
 
@@ -107,7 +108,7 @@ def scroll_page(driver: WebElement) -> None:
             break
 
 
-def has_scroll_button(driver: WebElement) -> Union[list, bool]:
+def resolve_scroll_button(driver: WebElement) -> bool:
     """
     Check if the scroll button is present.
     """
